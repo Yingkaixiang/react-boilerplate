@@ -1,3 +1,12 @@
+## TSLint
+
+[TSLint](https://palantir.github.io/tslint/)
+
+```bash
+# 检查并自动修成部分错误
+yarn lint
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
