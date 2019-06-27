@@ -13,6 +13,67 @@ commit 提交规范遵循 `Angular` 社区规范。
 
 使用 `yarn commit` 代替 `git commit`
 
+## antd
+
+如果你使用 `create-react-app` 创建基础项目并且没有进行 `eject` 操作，你可以按照官方指南安装 `antd`。
+
+如果你进行了 `eject` 操作，则可以使用以下方法进行安装。
+
+### babel-loader
+
+`yarn add babel-plugin-import -D`
+
+然后在 babel-loader 中进行配置
+
+```js
+{
+  test: /\.(js|mjs|jsx|ts|tsx)$/,
+  loader: require.resolve('babel-loader'),
+  options: {
+    // ...
+    plugins: [
+      // ...
+      [
+        require.resolve('babel-plugin-import'),
+        {
+          libraryDirectory: "es",
+          libraryName: "antd",
+          style: "css",
+        }
+      ]
+    ],
+    // ...
+  },
+},
+```
+
+### ts-loader
+
+`yarn add ts-import-plugin -D`
+
+```js
+{
+  test: /\.(ts|tsx)$/,
+  use: [
+    {
+      loader: require.resolve("ts-loader"),
+      options: {
+        // ...
+        getCustomTransformers: () => ({
+          before: [
+            tsImportPluginFactory({
+              libraryDirectory: "es",
+              libraryName: "antd",
+              style: "css",
+            }),
+          ],
+        }),
+      },
+    },
+  ],
+},
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

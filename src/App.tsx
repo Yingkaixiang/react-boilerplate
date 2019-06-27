@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "antd";
 
 import logo from "./logo.svg";
 import "./App.css";
@@ -19,6 +20,7 @@ const App: React.FC = () => {
         >
           Learn React
         </a>
+        <Button className="App-button">I love React</Button>
       </header>
     </div>
   );
