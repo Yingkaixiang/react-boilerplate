@@ -69,22 +69,11 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "lint": "tslint -c tslint.json --fix 'src/**/*.ts{,x}'",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "browserslist": "BROWSERSLIST_ENV=production browserslist"
   },
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "jest": {
     "collectCoverageFrom": [

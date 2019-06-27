@@ -1,7 +1,5 @@
 ## TSLint
 
-[TSLint](https://palantir.github.io/tslint/)
-
 ```bash
 # 检查并自动修成部分错误
 yarn lint
@@ -73,6 +71,10 @@ commit 提交规范遵循 `Angular` 社区规范。
   ],
 },
 ```
+
+## Browserslist
+
+使用 `yarn browserslist` 来查看当前应用所支持的浏览器列表。
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
