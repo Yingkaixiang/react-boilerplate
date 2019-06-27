@@ -1,5 +1,6 @@
 import React from "react";
 import { RouteConfigComponentProps, renderRoutes } from "react-router-config";
+import { connect } from "react-redux";
 
 import { Layout, Menu, Icon } from "antd";
 
@@ -65,4 +66,8 @@ const MyLayout: React.FC<RouteConfigComponentProps> = ({ route }) => {
   );
 };
 
-export default MyLayout;
+function mapStateToProps(store: any) {
+  return {};
+}
+
+export default connect(mapStateToProps)(MyLayout);
