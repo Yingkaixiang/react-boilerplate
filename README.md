@@ -7,6 +7,12 @@
 yarn lint
 ```
 
+## Git commit
+
+commit 提交规范遵循 `Angular` 社区规范。
+
+使用 `yarn commit` 代替 `git commit`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

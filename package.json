@@ -67,7 +67,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "lint": "tslint -c tslint.json --fix 'src/**/*.ts{,x}'"
+    "lint": "tslint -c tslint.json --fix 'src/**/*.ts{,x}'",
+    "commit": "git-cz"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -137,7 +138,14 @@
   "devDependencies": {
     "@babel/plugin-transform-react-jsx-self": "^7.2.0",
     "@babel/plugin-transform-react-jsx-source": "^7.2.0",
+    "commitizen": "^3.1.1",
+    "cz-conventional-changelog": "^2.1.0",
     "tslint": "^5.18.0",
     "tslint-react": "^4.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
