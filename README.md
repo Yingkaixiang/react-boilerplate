@@ -76,6 +76,10 @@ commit 提交规范遵循 `Angular` 社区规范。
 
 使用 `yarn browserslist` 来查看当前应用所支持的浏览器列表。
 
+## CSS and Sass
+
+全局样式文件名使用 `*.css *.scss`，要开启 `CSS Module` 则使用 `*.module.css *.module.scss`。
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

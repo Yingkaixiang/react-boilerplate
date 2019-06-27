@@ -3,6 +3,9 @@ import { Button } from "antd";
 
 import logo from "./logo.svg";
 import "./App.css";
+import styles from "./App.module.scss";
+
+console.dir(styles);
 
 const App: React.FC = () => {
   return (
@@ -21,6 +24,7 @@ const App: React.FC = () => {
           Learn React
         </a>
         <Button className="App-button">I love React</Button>
+        <p className={styles["App-text"]}>React NO.1</p>
       </header>
     </div>
   );
