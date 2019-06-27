@@ -5,8 +5,6 @@ import logo from "./logo.svg";
 import "./App.css";
 import styles from "./App.module.scss";
 
-console.dir(styles);
-
 const App: React.FC = () => {
   return (
     <div className="App">

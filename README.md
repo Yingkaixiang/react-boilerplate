@@ -80,6 +80,10 @@ commit 提交规范遵循 `Angular` 社区规范。
 
 全局样式文件名使用 `*.css *.scss`，要开启 `CSS Module` 则使用 `*.module.css *.module.scss`。
 
+## Testing
+
+使用 `jest` 以及 `enzyme` 作为单元测试。
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
