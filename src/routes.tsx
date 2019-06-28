@@ -3,7 +3,7 @@ import Loadable from "react-loadable";
 import { RouteConfig } from "react-router-config";
 
 import Layout from "./pages/Layout/Layout";
-import App from "./App";
+import App from "./pages/App/App";
 import NotFound from "./NotFound";
 import Loading from "./Loading";
 

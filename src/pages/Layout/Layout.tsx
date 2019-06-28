@@ -16,10 +16,14 @@ const { Header, Content, Footer, Sider } = Layout;
 
 type MyLayoutProps = RouteConfigComponentProps & RouteComponentProps;
 
-const MyLayout: React.FC<MyLayoutProps> = ({ route, location }) => {
+const MyLayout: React.FC<MyLayoutProps> = ({ route, location, history }) => {
   const matches = matchRoutes(routes, location.pathname);
   matches.shift();
   const path = matches.map((item: MatchedRoute<any>) => item.route);
+
+  function handleLogoClick() {
+    history.push("/");
+  }
 
   return (
     <Layout>
@@ -31,7 +35,7 @@ const MyLayout: React.FC<MyLayoutProps> = ({ route, location }) => {
           left: 0,
         }}
       >
-        <div className={styles.logo} />
+        <div className={styles.logo} onClick={handleLogoClick} />
         <Navigator routes={routes} />
       </Sider>
       <Layout style={{ marginLeft: 200 }}>
