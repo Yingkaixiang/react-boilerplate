@@ -37,7 +37,7 @@ const config: MyRouteConfig[] = [{
       key: "jsError",
       isShow: true,
       component: Loadable({
-        loader: () => import("./pages/ErrorMonitoring/JSError"),
+        loader: () => import("./pages/ErrorMonitoring/JSError/JSError"),
         loading: () => <Loading />,
       }),
     }, {

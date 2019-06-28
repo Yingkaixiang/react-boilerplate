@@ -1,6 +1,5 @@
 import React from "react";
 import { renderRoutes, matchRoutes } from "react-router-config";
-import { connect } from "react-redux";
 import { Layout } from "antd";
 import { withRouter } from "react-router-dom";
 
@@ -52,8 +51,4 @@ const MyLayout: React.FC<MyLayoutProps> = ({ route, location, history }) => {
   );
 };
 
-function mapStateToProps(store: any) {
-  return {};
-}
-
-export default connect(mapStateToProps)(withRouter(MyLayout));
+export default withRouter(MyLayout);

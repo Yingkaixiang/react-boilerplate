@@ -1,22 +1,17 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import createSagaMiddleware from "redux-saga";
 
-function counter(state = 0, action: any) {
-  switch (action.type) {
-    case "INCREMENT":
-      return state + 1;
-    case "DECREMENT":
-      return state - 1;
-    default:
-      return state;
-  }
-}
+import * as jsError from "./pages/ErrorMonitoring/JSError/model/index";
 
-const store = createStore(counter);
+import reducers from "./reducers";
 
-store.dispatch({ type: "INCREMENT" });
+const sagaMiddleware = createSagaMiddleware();
 
-store.dispatch({ type: "INCREMENT" });
+const store = createStore(
+  reducers,
+  applyMiddleware(sagaMiddleware),
+);
 
-store.dispatch({ type: "DECREMENT" });
+sagaMiddleware.run(jsError.helloSaga);
 
 export default store;
