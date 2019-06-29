@@ -10,6 +10,7 @@
 		"no-console": false,
 		"jsx-no-multiline-js": false,
 		"object-literal-sort-keys": false,
-		"member-access": false
+		"member-access": false,
+		"no-var-requires": false
 	}
 }

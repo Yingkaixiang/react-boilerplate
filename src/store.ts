@@ -1,17 +1,7 @@
-import { createStore, applyMiddleware } from "redux";
-import createSagaMiddleware from "redux-saga";
+import Store from "./lib/store";
 
-import * as jsError from "./pages/ErrorMonitoring/JSError/model/index";
+const store = new Store();
 
-import reducers from "./reducers";
+store.register(require("./pages/ErrorMonitoring/JSError/model"));
 
-const sagaMiddleware = createSagaMiddleware();
-
-const store = createStore(
-  reducers,
-  applyMiddleware(sagaMiddleware),
-);
-
-sagaMiddleware.run(jsError.helloSaga);
-
-export default store;
+export default store.init();
