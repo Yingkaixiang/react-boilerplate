@@ -13,6 +13,8 @@ import { Saga, SagaMiddleware } from "redux-saga";
 type StoreModel = Model<any>;
 type StoreState = any;
 
+// TODO
+// 1. 统一 loading 处理
 class Store {
   models: Set<StoreModel> = new Set();
   reducers: ReducersMapObject = {};
