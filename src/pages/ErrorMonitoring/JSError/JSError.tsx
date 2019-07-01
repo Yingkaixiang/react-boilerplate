@@ -1,13 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
-const JSError: React.FC = () => {
+interface JSErrorProps {
+  list?: any;
+  getList?: any;
+}
+
+const JSError: React.FC<any> = ({ list, getList }) => {
+  useEffect(() => {
+    getList();
+  }, []);
+
+  useEffect(() => {
+    console.dir(list);
+  });
   return <div>js error</div>;
 };
 
 function mapStateToProps(store: any) {
-  console.dir(store);
-  return {};
+  return { ...store.jsError };
 }
 
-export default connect(mapStateToProps)(JSError);
+function mapDispatchToProps(dispatch: any) {
+  return {
+    getList: () => dispatch({ type: "jsError/setList", payload: [1] }),
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(JSError);

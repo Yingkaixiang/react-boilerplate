@@ -5,10 +5,6 @@ export interface Action<T = any> {
   type: string;
 }
 
-export interface Reducers<T> {
-  [propName: string]: (prevState: T, action: Action) => object;
-}
-
 export interface Model<T> {
   namespace: string;
   state: T;
