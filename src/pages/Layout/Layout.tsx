@@ -45,7 +45,7 @@ const MyLayout: React.FC<MyLayoutProps> = ({ route, location, history }) => {
             {renderRoutes(route ? route.routes : [])}
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>Ant Design ©2018 Created by Ant UED</Footer>
+        <Footer style={{ textAlign: "center" }}>React Boilerplate ©2019 Created by 应开翔</Footer>
       </Layout>
     </Layout>
   );

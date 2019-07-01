@@ -6,20 +6,21 @@ import {
 import createSagaMiddleware from "redux-saga";
 import { takeEvery, takeLatest } from "redux-saga/effects";
 
-import { Model, Action } from "../app.d";
+import { Model, Action, EffectMapObject } from "../app.d";
 import { ReducersMapObject } from "redux";
 import { Saga, SagaMiddleware } from "redux-saga";
 
 type StoreModel = Model<any>;
+type StoreState = any;
 
 class Store {
   models: Set<StoreModel> = new Set();
   reducers: ReducersMapObject = {};
   effects: Saga[] = [];
-  initialState: any;
+  initialState: StoreState;
   sagaMiddleware: SagaMiddleware;
 
-  constructor(initialState: any = {}) {
+  constructor(initialState: StoreState = {}) {
     this.initialState = initialState;
     this.sagaMiddleware = createSagaMiddleware();
   }
@@ -42,12 +43,12 @@ class Store {
 
   createReducers(
     namespace: string,
-    state: any,
+    state: StoreState,
     reducers: ReducersMapObject,
   ) {
     Object.keys(reducers).forEach((key: string) => {
       const actionName = `${namespace}/${key}`;
-      this.reducers[namespace] = (prevState: any = state, action: Action) => {
+      this.reducers[namespace] = (prevState: StoreState = state, action: Action) => {
         if (action.type === actionName) {
           return reducers[key](prevState, action);
         }
@@ -56,7 +57,7 @@ class Store {
     });
   }
 
-  createSagas(namespace: string, effects: any) {
+  createSagas(namespace: string, effects: EffectMapObject) {
     Object.keys(effects).forEach((key: string) => {
       const action = `${namespace}/${key}`;
       const value = effects[key];
@@ -81,7 +82,7 @@ class Store {
       this.initialState,
       applyMiddleware(this.sagaMiddleware),
     );
-    this.effects.forEach((effect: any) => {
+    this.effects.forEach((effect: Saga) => {
       this.sagaMiddleware.run(effect);
     });
     return store;
