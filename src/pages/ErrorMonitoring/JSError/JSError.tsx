@@ -14,6 +14,7 @@ const JSError: React.FC<any> = ({ list, getList }) => {
   useEffect(() => {
     console.dir(list);
   });
+
   return <div>js error</div>;
 };
 
@@ -23,7 +24,7 @@ function mapStateToProps(store: any) {
 
 function mapDispatchToProps(dispatch: any) {
   return {
-    getList: () => dispatch({ type: "jsError/setList", payload: [1] }),
+    getList: () => dispatch({ type: "jsError/getList" }),
   };
 }
 

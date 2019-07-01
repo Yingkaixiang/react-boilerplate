@@ -4,6 +4,7 @@ import {
   applyMiddleware,
 } from "redux";
 import createSagaMiddleware from "redux-saga";
+import { takeEvery, takeLatest } from "redux-saga/effects";
 
 import { Model, Action } from "../app.d";
 import { ReducersMapObject } from "redux";
@@ -35,7 +36,7 @@ class Store {
     this.models.forEach((model: StoreModel) => {
       const { namespace, state, reducers, effects = {} } = model;
       this.createReducers(namespace, state, reducers);
-      this.createSagas(effects);
+      this.createSagas(namespace, effects);
     });
   }
 
@@ -55,9 +56,21 @@ class Store {
     });
   }
 
-  createSagas(effects: any) {
+  createSagas(namespace: string, effects: any) {
     Object.keys(effects).forEach((key: string) => {
-      this.effects.push(effects[key]);
+      const action = `${namespace}/${key}`;
+      const value = effects[key];
+      if (typeof value === "function") {
+        this.effects.push(function*() {
+          yield takeEvery(action, value);
+        });
+      } else if (value instanceof Array) {
+        this.effects.push(function*() {
+          yield takeLatest(action, value[0]);
+        });
+      } else {
+        this.effects.push(value);
+      }
     });
   }
 
